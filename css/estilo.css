@@ -1,0 +1,107 @@
+*{margin: 0;padding: 0;padding: 0;}
+
+body{font-family: helvetica, arial;font-size: 25px;color:#909090;}
+
+
+/* STYLE CSS */
+*{ margin: 0; padding: 0; }
+
+body{ font-family: helvetica, arial; 
+      font-size: 16px; 
+	  color:#333; }
+
+header{ height: 80px; 
+	    background-color:#909595; }
+		
+footer{ 
+	height: 50px; 
+	background-color: #606060; 
+	padding:10px 0; 
+	text-align: center; 
+	font-size:12px; 
+	color: #f4f4f4; 
+}
+
+h1{
+	color: #FF7F50;
+	text-shadow: 1px 1px 1px #111111;
+	text-align: center;
+	margin:200px 0 200px 0;
+	text-shadow: 3px 3px 3px #111111;
+}	
+
+/* class */
+/*.container{ margin: 0 auto; width: 960px; }*/
+
+/* id */
+#conteudo{ padding:50px 0; }
+
+
+#menu{ float:right; 
+       padding: 32px 0px 0px 0px; }
+
+#menu a{
+	padding:31px 40px;
+	text-decoration: none;
+	color:#111;
+	text-shadow: 1px 1px #111111;
+}
+		 
+#menu a:hover{
+	background-color:#111111;
+	color:#FFFFFF;
+}
+	
+
+
+
+
+
+/*header{ height:70px; background-color:#909595; padding:30px 50px; }
+
+
+footer{
+	color:#f4f4f4;
+	clear: both;	
+	background-color: #606060;
+	height: 50px;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 16px;
+	text-shadow: 0px 0px 0px #111111;
+}
+
+h1{
+	color: #FF7F50;
+	text-shadow: 1px 1px 1px #111111;
+	text-align: center;
+	margin:200px 0 200px 0;
+	text-shadow: 3px 3px 3px #111111;
+}
+
+#logo{
+	float:left;
+}
+
+#menu{
+	margin-top: ;
+	float: right;
+	padding: 50px 50px;
+}
+
+#menu a{
+	padding:30px 40px;
+	text-decoration: none;
+	color:#111;
+	text-shadow: 1px 1px #111111;
+}
+
+#menu a:hover{
+	background-color:#111111;
+	color:#FFFFFF;
+
+/* CLASS */
+/*.container{ margin: 0 auto; width: 960px; }
+
+/* ID */
+/*#conteudo{ padding:50px 0; }
