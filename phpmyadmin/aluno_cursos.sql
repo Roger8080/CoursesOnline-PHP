@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jul-2021 às 12:59
+-- Tempo de geração: 13-Jul-2021 às 20:26
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.4.20
 
@@ -42,7 +42,7 @@ CREATE TABLE `alunos` (
 --
 
 INSERT INTO `alunos` (`id_aluno`, `nome`, `data_nascimento`, `endereco`, `cidade`, `estado`, `cpf`) VALUES
-(1, 'Roger Felix', '1993-08-27', 'R Antonio Quintiliano 99', 'Sao Paulo', 'SP', '41526374859'),
+(1, 'Roger L Felix', '1993-08-27', 'AV Lauzane Paulista 460', 'Sao Paulo', 'SP', '41526374850'),
 (2, 'Felipe Santos', '1993-08-27', 'R Alberto Lonhoff 460', 'Rio de Janeiro', 'RJ', '41526374858'),
 (3, 'Maria Aparecida', '1993-08-27', 'R Osasco 12', 'Osasco', 'SP', '41526374857'),
 (4, 'Jose Fagundes', '1993-08-27', 'R Bahia 44', 'Salvador', 'BA', '41526374856'),
@@ -52,8 +52,11 @@ INSERT INTO `alunos` (`id_aluno`, `nome`, `data_nascimento`, `endereco`, `cidade
 (8, 'Marcos Antonio', '1993-08-27', 'R riacho grande 10', 'Rio Grande do Sul', 'RS', '41526374852'),
 (9, 'Billy Harry', '1993-08-27', 'R indio patachó 160', 'Amazonas', 'AM', '41526374851'),
 (10, 'Mariano Floriano', '1993-08-27', 'R Acre 89', 'Acre', 'AC', '41526374850'),
-(11, 'Renan Monteiro', '1993-08-27', 'Av Corruptos 100', 'Distrito Federal', 'DF', '41526374800'),
-(12, 'Ryan Miguel ', '0000-00-00', 'Rua Lacerda Marques 99', 'São Paulo', 'SP', '48756544585');
+(27, 'Renan Monteiro', '1993-12-24', 'Rua Leite de Morais', 'São Paulo', 'SP', '85659955221'),
+(28, 'Ruan Guedes', '1995-12-10', 'R Vila Galvao', 'Sao Paulo', 'SP', '85698877465'),
+(34, 'Cinomar Junior', '1995-10-10', 'Rua Alagoas 189', 'Itaquaquecetuba', 'SP', '56221236362'),
+(35, 'Douglas Almeida', '1993-08-19', 'AV bailao 100', 'São Paulo', 'SP', '55668754562'),
+(37, 'Ryan Miguel ', '1993-12-24', 'Rua Leite de Morais', 'São Paulo', 'SP', '85698877465');
 
 -- --------------------------------------------------------
 
@@ -72,7 +75,6 @@ CREATE TABLE `alunos_cursos` (
 --
 
 INSERT INTO `alunos_cursos` (`id_alunos_cursos`, `id_aluno`, `id_curso`) VALUES
-(1, 7, 1),
 (2, 8, 2),
 (3, 9, 3),
 (4, 10, 4),
@@ -83,7 +85,24 @@ INSERT INTO `alunos_cursos` (`id_alunos_cursos`, `id_aluno`, `id_curso`) VALUES
 (9, 15, 4),
 (10, 16, 5),
 (11, 17, 6),
-(12, 7, 7);
+(12, 7, 7),
+(19, 1, 2),
+(20, 1, 8),
+(21, 9, 5),
+(22, 25, 7),
+(23, 26, 0),
+(26, 3, 5),
+(29, 2, 1),
+(30, 30, 7),
+(31, 28, 10),
+(32, 29, 8),
+(34, 30, 2),
+(35, 29, 7),
+(40, 2147483647, 1),
+(41, 2147483647, 2),
+(43, 35, 7),
+(44, 3, 2),
+(45, 1, 18);
 
 -- --------------------------------------------------------
 
@@ -105,11 +124,14 @@ INSERT INTO `cursos` (`id_curso`, `nome_curso`) VALUES
 (2, 'Laravel'),
 (3, 'Google Cloud'),
 (4, 'Java Script'),
-(5, 'codeigniter'),
-(6, 'Python'),
+(5, 'Codeigniter'),
 (7, 'MySQL'),
 (8, 'React Native'),
-(9, 'React JS');
+(9, 'React.JS'),
+(10, 'Google Cloud Computing'),
+(13, 'Angular.JS'),
+(15, 'Vue.JS'),
+(18, 'AWS ');
 
 -- --------------------------------------------------------
 
@@ -141,6 +163,28 @@ INSERT INTO `nota` (`id_nota`, `descricao_atividade`, `vlr_nota`, `id_aluno_curs
 (10, 'exercicio 1', '8.00', 10),
 (11, 'exercicio 1', '8.00', 11);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `senha`) VALUES
+(1, 'root', '827ccb0eea8a706c4c34a16891f84e7b'),
+(2, 'admin', '827ccb0eea8a706c4c34a16891f84e7b'),
+(3, 'Roger', '827ccb0eea8a706c4c34a16891f84e7b'),
+(4, 'usuario', '827ccb0eea8a706c4c34a16891f84e7b');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -170,6 +214,13 @@ ALTER TABLE `nota`
   ADD PRIMARY KEY (`id_nota`);
 
 --
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`usuario`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -177,25 +228,31 @@ ALTER TABLE `nota`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `alunos_cursos`
 --
 ALTER TABLE `alunos_cursos`
-  MODIFY `id_alunos_cursos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_alunos_cursos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de tabela `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `nota`
 --
 ALTER TABLE `nota`
   MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
