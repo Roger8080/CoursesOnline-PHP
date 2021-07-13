@@ -4,10 +4,10 @@
 
 <form method="post" action="processa_curso.php">
 	<br>
-	<label>Nome do curso</label><br>
+	<label  class="badge badge-info">Nome do curso</label><br>
 	<input type="text" name="nome_curso" placeholder="Insira o nome do curso">
 	<br><br>
-	<input type="submit" value="Inserir curso">
+	<input class="btn btn-info" type="submit" value="Inserir curso">
 </form>
 
 		
@@ -24,7 +24,7 @@
 			<input type="text" name="nome_curso" placeholder="insira o nome do curso"
 			value="<?php echo $linha['nome_curso']; ?>">
 			<br><br>
-			<input type="submit" value="editar Curso">
+			<input type="button" class="btn btn-info" type="submit" value="editar Curso">
 		 </form>
 		
 		<?php } ?>

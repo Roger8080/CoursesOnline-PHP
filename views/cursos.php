@@ -1,26 +1,35 @@
-<a href="?pagina=inserir_curso">Inserir novo curso</a>
-<table style="border:1px solid #ccc; width: 100%">
+<a button type="button" class="btn btn-info" href="?pagina=inserir_curso">Inserir novo curso</a>
+<br><br>
+<table class="table table-hover table-striped" id="cursos">
 
-	<tr>
-		<th>Nome Curso</th>
-		<th>ID Curso</th>
-		<th>Editar</th>
-		<th>Deletar</th>
-	</tr>
+    <thead>
+	   <tr>
+		   <th>Nome Curso</th>
+		   <th>ID Curso</th>
+		   <th>Editar</th>
+		   <th>Deletar</th>
+	   </tr>
+	</thead>
 	
-	<?php 
+	<tbody>
+		<?php 
 			while($linha = mysqli_fetch_array($consulta_cursos)){
 				echo '<tr><td>'.$linha['nome_curso'].'</td>';
 				echo '<td>'.$linha['id_curso'].'</td>';
-	?>
+			?>
 
-<td><a href="?pagina=inserir_curso&editar=<?php echo 
-			 $linha['id_curso']; ?>">Editar</a></td>
-<td><a href="deleta_curso.php?id_curso=<?php echo 
-			 $linha['id_curso']; ?>">Deletar</a></td></tr>
-	<?php
-			}
-	?>
-		
+			<td><a class="text-info" href="?pagina=inserir_curso&editar=<?php echo 
+				 $linha['id_curso']; ?>">
+				 <i class="fas fa-edit"></i>
+				 </a></td>
+			<td><a class="text-danger" href="deleta_curso.php?id_curso=<?php echo 
+				 $linha['id_curso']; ?>">
+				 <i class="fas fa-trash-alt"></i>
+				 </a></td></tr>
+		<?php
+				}
+			?>
+	</tbody>	
+	
 </table>
 
